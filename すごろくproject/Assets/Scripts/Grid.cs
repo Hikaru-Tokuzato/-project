@@ -10,6 +10,11 @@ public class Grid : MonoBehaviour
         
     }
 
+    void Action()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
