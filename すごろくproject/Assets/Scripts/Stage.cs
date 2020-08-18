@@ -11,24 +11,27 @@ public class Stage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+        void SetOrder()
+        {
+
+        }
+
+        void AddPlayer()
+        {
+
+        }
+
+        void init()
+        {
+
+        }
     }
-    void SetOrder(){
-
-    }
-
-    void AddPlayer(){
-
-    }
-
-    void init(){
-
-    }
-    
 }
