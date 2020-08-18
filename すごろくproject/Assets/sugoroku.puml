@@ -1,0 +1,40 @@
+﻿@startuml
+actor Player
+participant GameMaster
+participant Stage
+participant Character
+participant Grid
+participant Dice
+
+Player -> GameMaster : ゲームをスタート
+GameMaster -> Player : 人数を聞く
+Player -> GameMaster : 人数を返す
+GameMaster -> Stage : ステージの生成命令
+Stage -> Stage : ステージの作成
+GameMaster -> Stage : プレイヤーの生成命令
+Stage -> Stage : プレイヤーの作成
+GameMaster -> Stage : 順番決め
+Stage -> Stage : 順番の決定
+loop ゲーム終了まで
+    GameMaster -> Player : 行動の提示
+    Player -> GameMaster : 行動の選択
+    alt ダイスを振るを選択
+        GameMaster -> Stage : 行動の命令
+        Stage -> Character : ダイスを振る命令 
+        Character -> Character : ダイスを振る
+        Character -> Dice : ダイスの値の要求
+        Dice -> Character : ダイスの値の返却
+        Character -> Stage : ダイスの値の返却
+        Stage -> Character : キャラクターの移動
+        Stage -> Grid : アクションの要求
+        Grid -> Stage : アクションの返却
+        Stage -> Character : アクションの命令
+        Character -> Character : アクションの実行
+    end
+end
+
+
+
+
+
+@enduml
