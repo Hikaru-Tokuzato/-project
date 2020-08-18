@@ -15,4 +15,19 @@ public class GameMaster : MonoBehaviour
     {
         
     }
+
+    void init(){
+
+    }
+
+    void PlayGame(){
+
+    }
+
+    void EndGame(){
+
+    }
+    void StartGame(){
+
+    }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    int coordinate;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,10 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void Move(){
         
     }
 }
