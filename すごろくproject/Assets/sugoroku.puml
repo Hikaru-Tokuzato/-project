@@ -6,30 +6,30 @@ participant Character
 participant Grid
 participant Dice
 
-Player -> GameMaster : ゲームをスタート
-GameMaster -> Player : 人数を聞く
+Player -> GameMaster : ゲームをスタート StartGame()
+GameMaster -> Player : 人数を聞く SetPlayerNum()
 Player -> GameMaster : 人数を返す
-GameMaster -> Stage : ステージの生成命令
-Stage -> Stage : ステージの作成
-GameMaster -> Stage : プレイヤーの生成命令
-Stage -> Stage : プレイヤーの作成
-GameMaster -> Stage : 順番決め
-Stage -> Stage : 順番の決定
+GameMaster -> Stage : ステージの生成命令 MakeStage()
+Stage -> Stage : ステージの作成 MakeStage()
+GameMaster -> Stage : プレイヤーの生成命令 MakePlayers()
+Stage -> Stage : プレイヤーの作成 MakePlayers()
+GameMaster -> Stage : 順番決め MakeOrder()
+Stage -> Stage : 順番の決定 MakeOrder()
 loop ゲーム終了まで
-    GameMaster -> Player : 行動の提示
+    GameMaster -> Player : 行動の提示 SelectAction()
     Player -> GameMaster : 行動の選択
     alt ダイスを振るを選択
-        GameMaster -> Stage : 行動の命令
-        Stage -> Character : ダイスを振る命令 
-        Character -> Character : ダイスを振る
-        Character -> Dice : ダイスの値の要求
+        GameMaster -> Stage : 行動の命令 ForceAction() 
+        Stage -> Character : ダイスを振る命令 RollDice()
+        Character -> Character : ダイスを振る Roll()
+        Character -> Dice : ダイスの値の要求 Roll()
         Dice -> Character : ダイスの値の返却
         Character -> Stage : ダイスの値の返却
-        Stage -> Character : キャラクターの移動
-        Stage -> Grid : アクションの要求
-        Grid -> Stage : アクションの返却
-        Stage -> Character : アクションの命令
-        Character -> Character : アクションの実行
+        Stage -> Character : キャラクターの移動 Move()
+        Stage -> Grid : アクションの要求  GridAction()
+        Grid -> Stage : アクションの返却  GetAction()
+        Stage -> Character : アクションの命令CharacterAction()
+        Character -> Character : アクションの実行 Action()
     end
 end
 
