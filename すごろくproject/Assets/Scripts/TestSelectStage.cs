@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -14,13 +15,7 @@ public class TestSelectStage : MonoBehaviour
     {
         button.onClick.AddListener(this.OnClick);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    
     public void OnClick()
     {
         if (button.tag.Equals("PlayerButton"))
@@ -42,20 +37,21 @@ public class TestSelectStage : MonoBehaviour
         {
             case "1":
                 data.text = "2";
-                return "2";
+                break;
             case "2":
                 data.text = "3";
-                return "3";
+                break;
             case "3":
                 data.text = "4";
-                return "4";
+                break;
             case "4":
                 data.text = "1";
-                return "1";
-            default:
                 break;
+            default:
+                throw new InvalidOperationException();
         }
-        return null;
+
+        return data.text;
     }
     public string StageButton()
     {
@@ -63,20 +59,20 @@ public class TestSelectStage : MonoBehaviour
         {
             case "Stage1":
                 data.text = "Stage2";
-                return "Stage2";
+                break;
             case "Stage2":
                 data.text = "Stage3";
-                return "Stage3";
+                break;
             case "Stage3":
                 data.text = "Stage4";
-                return "Stage4";
+                break;
             case "Stage4":
                 data.text = "Stage1";
-                return "Stage1";
-            default:
                 break;
+            default:
+                throw new InvalidOperationException();
         }
-        return null;
+        return data.text;
     }
     public void Decision(string stage_data)
     {
