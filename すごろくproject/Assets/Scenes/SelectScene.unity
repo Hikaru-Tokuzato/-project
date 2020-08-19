@@ -400,8 +400,8 @@ GameObject:
   - component: {fileID: 386885786}
   - component: {fileID: 386885789}
   m_Layer: 5
-  m_Name: PlayerBotton(kari)
-  m_TagString: PlayerBotton
+  m_Name: PlayerButton(kari)
+  m_TagString: PlayerButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -612,8 +612,8 @@ GameObject:
   - component: {fileID: 1125989448}
   - component: {fileID: 1125989451}
   m_Layer: 5
-  m_Name: StageBotton(kari)
-  m_TagString: StageBotton
+  m_Name: StageButton(kari)
+  m_TagString: StageButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -746,8 +746,8 @@ GameObject:
   - component: {fileID: 1240177911}
   - component: {fileID: 1240177914}
   m_Layer: 5
-  m_Name: DecisionBotton(kari)
-  m_TagString: DecisionBotton
+  m_Name: DecisionButton(kari)
+  m_TagString: DecisionButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

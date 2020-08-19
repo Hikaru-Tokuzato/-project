@@ -23,20 +23,20 @@ public class TestSelectStage : MonoBehaviour
 
     public void OnClick()
     {
-        if (button.tag.Equals("PlayerBotton"))
+        if (button.tag.Equals("PlayerButton"))
         {
-            player_data = PlayerBotton();
+            player_data = PlayerButton();
         }
-        else if (button.tag.Equals("StageBotton"))
+        else if (button.tag.Equals("StageButton"))
         {
-            stage_data = StageBotton();
+            stage_data = StageButton();
         }
-        else if (button.tag.Equals("DecisionBotton"))
+        else if (button.tag.Equals("DecisionButton"))
         {
             Decision(stage_data);
         }
     }
-    public string PlayerBotton()
+    public string PlayerButton()
     {
         switch (data.text)
         {
@@ -57,7 +57,7 @@ public class TestSelectStage : MonoBehaviour
         }
         return null;
     }
-    public string StageBotton()
+    public string StageButton()
     {
         switch (data.text)
         {

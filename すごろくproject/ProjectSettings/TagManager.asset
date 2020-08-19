@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerBotton
-  - StageBotton
-  - DecisionBotton
+  - PlayerButton
+  - StageButton
+  - DecisionButton
   layers:
   - Default
   - TransparentFX
