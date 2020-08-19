@@ -14,7 +14,27 @@ public class Stage : MonoBehaviour
 
     }
 
-    void AddPlayer(){
+    public void MakePlayer(int playerNum){
         this.Characters.Add(new Character("Taro"));
+    }
+
+    public void MakeStage()
+    {
+        
+    }
+
+    public void MakeOrder()
+    {
+        
+    }
+
+    public void ForceAction(int actionNumber)
+    {
+        
+    }
+
+    public bool IfFinishGame()
+    {
+        return true
     }
 }
