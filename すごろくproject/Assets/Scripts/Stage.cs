@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage : MonoBehaviour
+public class Stage
 {
     Grid[] grids;
     List<Character> Characters;
-    int activePlayer;
-    List<int> order;
+    public List<int> order;
+    public int turn { get; set; } = 0;
     
     public void MakePlayer(int playerNum)
     {
@@ -23,8 +23,6 @@ public class Stage : MonoBehaviour
         {
             order.Add(i);
         }
-
-        activePlayer = order[0];
     }
     
     public void MakeStage(Grid[] grids)
@@ -32,19 +30,38 @@ public class Stage : MonoBehaviour
         this.grids = grids;
     }
     
-    public void ForceAction(int actionNumber)
+    public void ForceAction(int actionNumber, int index)
     {
         if (actionNumber == 1) //ダイスを振る
         {
-            var value = Characters[actionNumber].RollDice();
-            Characters[actionNumber].Move(value);
-            var action = grids[Characters[actionNumber].coordinate].GetAction();
-            Characters[actionNumber].CharacterAction(action);
+            var value = Characters[order[index]].RollDice();
+            if (Characters[order[index]].coordinate + value >= grids.Length)
+            {
+                Characters[order[index]].FinishFlag = true;
+                value =  grids.Length - Characters[order[index]].coordinate;
+            }
+            Characters[order[index]].Move(value);
+            var action = grids[Characters[order[index]].coordinate].GetAction();
+            Characters[order[index]].CharacterAction(action);
         }
     }
 
     public bool IfFinishGame()
     {
-        return true;
+        if (0 == this.GetActivePlayersNum()) return true;
+        else return false;
+    }
+
+    public int GetActivePlayersNum()
+    {
+        int num = 0;
+        foreach (var character in Characters)
+        {
+            if (!character.FinishFlag)
+            {
+                num++;
+            }
+        }
+        return num;
     }
 }
