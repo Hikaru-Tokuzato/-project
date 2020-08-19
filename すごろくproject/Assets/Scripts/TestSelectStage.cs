@@ -6,7 +6,7 @@ public class TestSelectStage : MonoBehaviour
 {
     [SerializeField] Button button;
     [SerializeField] Text data;
-    static string player_data = "1";
+    public static string player_data = "1";
     static string stage_data = "Stage1";
 
     // Start is called before the first frame update

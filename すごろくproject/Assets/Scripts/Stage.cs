@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stage
 {
-    Grid[] grids;
+    List<Grid> grids;
     List<Character> Characters;
     public List<int> order;
     public int turn { get; set; } = 0;
@@ -13,7 +13,8 @@ public class Stage
     {
         for (int i = 1; i <= playerNum; i++)
         {
-            this.Characters.Add(new Character("Player" + i));
+            var temp = new Character("Player" + i);
+            this.Characters.Add(temp);
         }
     }
 
@@ -25,7 +26,7 @@ public class Stage
         }
     }
     
-    public void MakeStage(Grid[] grids)
+    public void MakeStage(List<Grid> grids)
     {
         this.grids = grids;
     }
@@ -35,10 +36,10 @@ public class Stage
         if (actionNumber == 1) //ダイスを振る
         {
             var value = Characters[order[index]].RollDice();
-            if (Characters[order[index]].coordinate + value >= grids.Length)
+            if (Characters[order[index]].coordinate + value >= grids.Count)
             {
                 Characters[order[index]].FinishFlag = true;
-                value =  grids.Length - Characters[order[index]].coordinate;
+                value =  grids.Count - Characters[order[index]].coordinate;
             }
             Characters[order[index]].Move(value);
             var action = grids[Characters[order[index]].coordinate].GetAction();

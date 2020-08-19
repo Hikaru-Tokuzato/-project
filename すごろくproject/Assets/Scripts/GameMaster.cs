@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour
@@ -9,7 +10,7 @@ public class GameMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartGame();
     }
 
     void StartGame()
@@ -19,11 +20,16 @@ public class GameMaster : MonoBehaviour
 
         // grids の情報を取得
         // GameObject.FindWithTags
-        var grids = new Grid[] {new Grid(), new Grid(),};
+        var grids = new List<Grid>();
+        var grid = GameObject.FindGameObjectsWithTag("grid");
+        foreach(GameObject i in grid)
+        {
+            grids.Add(i.GetComponent<Grid>());
+        }
         _stage.MakeStage(grids);
 
         //人数聞く
-        var playerNum = 1;
+        var playerNum = Convert.ToInt32(TestSelectStage.player_data);
         _stage.MakePlayer(playerNum);
 
         _stage.MakeOrder();

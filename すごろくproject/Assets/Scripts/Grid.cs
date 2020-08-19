@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid 
+public class Grid :MonoBehaviour
 {
     public int GetAction()
     {
