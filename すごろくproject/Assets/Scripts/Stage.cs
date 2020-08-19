@@ -31,11 +31,12 @@ public class Stage
         this.grids = grids;
     }
     
-    public void ForceAction(int actionNumber, int index)
+    public int ForceAction(int actionNumber, int index)
     {
+        int value = 0;
         if (actionNumber == 1) //ダイスを振る
         {
-            var value = Characters[order[index]-1].RollDice();
+            value = Characters[order[index]-1].RollDice();
             if (Characters[order[index]-1].coordinate + value >= grids.Count)
             {
                 Characters[order[index]-1].FinishFlag = true;
@@ -45,6 +46,8 @@ public class Stage
             var action = grids[Characters[order[index]-1].coordinate].GetAction();
             Characters[order[index]-1].CharacterAction(action);
         }
+
+        return value;
     }
 
     public bool IfFinishGame()

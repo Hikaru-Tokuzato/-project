@@ -22,6 +22,7 @@ public class GameMaster : MonoBehaviour
         // GameObject.FindWithTags
         var grids = new List<Grid>();
         var grid = GameObject.FindGameObjectsWithTag("grid");
+        var koma = GameObject.Find("Player");
         foreach(GameObject i in grid)
         {
             grids.Add(i.GetComponent<Grid>());
@@ -41,7 +42,9 @@ public class GameMaster : MonoBehaviour
             {
                 //行動の提示
                 var actionNumber = 1;
-                _stage.ForceAction(actionNumber, i);
+                var value = _stage.ForceAction(actionNumber, i);
+                Vector3 tmp = grid[value-1].transform.position;
+                koma.transform.position = tmp;
             }
 
             _stage.turn = _stage.turn + 1;
