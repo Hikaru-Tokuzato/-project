@@ -34,15 +34,15 @@ public class Stage
     {
         if (actionNumber == 1) //ダイスを振る
         {
-            var value = Characters[order[index]].RollDice();
-            if (Characters[order[index]].coordinate + value >= grids.Count)
+            var value = Characters[order[index]-1].RollDice();
+            if (Characters[order[index]-1].coordinate + value >= grids.Count)
             {
-                Characters[order[index]].FinishFlag = true;
-                value =  grids.Count - Characters[order[index]].coordinate;
+                Characters[order[index]-1].FinishFlag = true;
+                value =  grids.Count - Characters[order[index]-1].coordinate;
             }
-            Characters[order[index]].Move(value);
-            var action = grids[Characters[order[index]].coordinate].GetAction();
-            Characters[order[index]].CharacterAction(action);
+            Characters[order[index]-1].Move(value);
+            var action = grids[Characters[order[index]-1].coordinate-1].GetAction();
+            Characters[order[index]-1].CharacterAction(action);
         }
     }
 

@@ -36,6 +36,7 @@ public class GameMaster : MonoBehaviour
 
         while (!_stage.IfFinishGame())
         {
+            Debug.Log("turn");
             for (int i = 0; i < _stage.GetActivePlayersNum(); i++)
             {
                 //行動の提示

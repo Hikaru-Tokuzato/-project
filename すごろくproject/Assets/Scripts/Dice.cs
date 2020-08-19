@@ -1,4 +1,5 @@
 ﻿using Random = System.Random;
+using UnityEngine;
 
 public class Dice
 {
@@ -13,7 +14,9 @@ public class Dice
     }
     public int Roll()
     {
-        return random.Next(MINVALUE, MAXVALUE);
+        var temp = random.Next(MINVALUE, MAXVALUE);
+        Debug.Log(temp);
+        return temp;
     }
     
 }
