@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Stage
 {
-    List<Grid> grids;
-    List<Character> Characters;
-    public List<int> order;
+    List<Grid> grids = new List<Grid>();
+    List<Character> Characters = new List<Character>();
+    public List<int> order = new List<int>();
     public int turn { get; set; } = 0;
     
     public void MakePlayer(int playerNum)
     {
         for (int i = 1; i <= playerNum; i++)
         {
-            var temp = new Character("Player" + i);
-            this.Characters.Add(temp);
+            this.Characters.Add(new Character("Player" + i) );
         }
     }
 
