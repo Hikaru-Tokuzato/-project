@@ -2,22 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class Grid 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public int GetAction()
     {
         return 1;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
