@@ -2,25 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character
 {
     public int coordinate;
+    public Dice dice;
     string name;
     // Start is called before the first frame update
-    void Start()
-    {
-        coordinate = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public Character(string name)
     {
         this.name = name;
+        coordinate = 0;
+        dice = new Dice();
     }
 
     public void Move(int amount){
@@ -29,11 +22,11 @@ public class Character : MonoBehaviour
 
     public int RollDice()
     {
-        return 1;
+        return dice.Roll();
     }
 
     public void CharacterAction(int action)
     {
-        
+        return;
     }
 }

@@ -15,7 +15,7 @@ public class Dice : MonoBehaviour
     {
         random = new Random();
     }
-    int Roll()
+    public int Roll()
     {
         return random.Next(MINVALUE, MAXVALUE);
     }
