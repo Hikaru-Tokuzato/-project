@@ -7,19 +7,21 @@ participant Grid
 participant Dice
 
 Player -> GameMaster : ゲームをスタート StartGame()
+GameMaster -> Player: ステージの種類を聞く
+Player -> GameMaster: ステージの種類を返す
 GameMaster -> Stage : ステージの生成命令 MakeStage()
 Stage -> Stage : ステージの作成 MakeStage()
 GameMaster -> Player : 人数を聞く SetPlayerNum()
-Player -> GameMaster : 人数を返す
-GameMaster -> Stage : プレイヤーの生成命令 MakePlayers()
-Stage -> Stage : プレイヤーの作成 MakePlayers()
+Player -> GameMaster : 人数を返す int
+GameMaster -> Stage : プレイヤーの生成命令 MakePlayers(int )
+Stage -> Stage : プレイヤーの作成 MakePlayers(int )
 GameMaster -> Stage : 順番決め MakeOrder()
 Stage -> Stage : 順番の決定 MakeOrder()
 loop ゲーム終了まで
     GameMaster -> Player : 行動の提示 SelectAction()
     Player -> GameMaster : 行動の選択
     alt ダイスを振るを選択
-        GameMaster -> Stage : 行動の命令 ForceAction() 
+        GameMaster -> Stage : 行動の命令 ForceAction(int ) 
         Stage -> Character : ダイスを振る命令 RollDice()
         Character -> Character : ダイスを振る Roll()
         Character -> Dice : ダイスの値の要求 Roll()
@@ -32,9 +34,4 @@ loop ゲーム終了まで
         Character -> Character : アクションの実行 Action()
     end
 end
-
-
-
-
-
 @enduml
