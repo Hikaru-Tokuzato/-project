@@ -16,7 +16,7 @@ public class SceneChange : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("SelectScene", LoadSceneMode.Single);
         }
     }
 }
