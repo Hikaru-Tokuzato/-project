@@ -11,31 +11,33 @@ public class GameMaster : MonoBehaviour
     {
         
     }
-    void StartGame(){
+
+    void StartGame()
+    {
         //ステージ選択
         _stage = new Stage();
-        
+
         // grids の情報を取得
         // GameObject.FindWithTags
-        var grids = new Grid[] { new Grid(), new Grid(),};
+        var grids = new Grid[] {new Grid(), new Grid(),};
         _stage.MakeStage(grids);
-        
+
         //人数聞く
-        var playerNum = 1; 
+        var playerNum = 1;
         _stage.MakePlayer(playerNum);
-        
+
         _stage.MakeOrder();
 
-
-        while (true)
+        while (!_stage.IfFinishGame())
         {
-            //行動の提示
-            var actionNumber = 1;
-            _stage.ForceAction(actionNumber);
-            
-            if (_stage.IfFinishGame()) break;
-        }
+            for (int i = 0; i < _stage.GetActivePlayersNum(); i++)
+            {
+                //行動の提示
+                var actionNumber = 1;
+                _stage.ForceAction(actionNumber, i);
+            }
 
-        
+            _stage.turn = _stage.turn + 1;
+        }
     }
 }
