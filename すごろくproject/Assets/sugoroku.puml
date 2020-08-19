@@ -7,10 +7,10 @@ participant Grid
 participant Dice
 
 Player -> GameMaster : ゲームをスタート StartGame()
-GameMaster -> Player : 人数を聞く SetPlayerNum()
-Player -> GameMaster : 人数を返す
 GameMaster -> Stage : ステージの生成命令 MakeStage()
 Stage -> Stage : ステージの作成 MakeStage()
+GameMaster -> Player : 人数を聞く SetPlayerNum()
+Player -> GameMaster : 人数を返す
 GameMaster -> Stage : プレイヤーの生成命令 MakePlayers()
 Stage -> Stage : プレイヤーの作成 MakePlayers()
 GameMaster -> Stage : 順番決め MakeOrder()
