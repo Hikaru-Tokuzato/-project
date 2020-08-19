@@ -19,6 +19,7 @@ public class Stage
 
     public void MakeOrder()
     {
+        Debug.Log("charactercount = "+Characters.Count);
         for (int i = 1; i <= Characters.Count; i++)
         {
             order.Add(i);
@@ -38,10 +39,10 @@ public class Stage
             if (Characters[order[index]-1].coordinate + value >= grids.Count)
             {
                 Characters[order[index]-1].FinishFlag = true;
-                value =  grids.Count - Characters[order[index]-1].coordinate;
+                value =  grids.Count - Characters[order[index]-1].coordinate -1;
             }
             Characters[order[index]-1].Move(value);
-            var action = grids[Characters[order[index]-1].coordinate-1].GetAction();
+            var action = grids[Characters[order[index]-1].coordinate].GetAction();
             Characters[order[index]-1].CharacterAction(action);
         }
     }

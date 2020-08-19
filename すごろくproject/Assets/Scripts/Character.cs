@@ -14,7 +14,7 @@ public class Character
     public Character(string name)
     {
         this.Name = name;
-        coordinate = 0;
+        coordinate = 1;
         dice = new Dice();
     }
 
