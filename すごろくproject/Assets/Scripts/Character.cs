@@ -6,12 +6,14 @@ public class Character
 {
     public int coordinate;
     public Dice dice;
-    string name;
+    public bool FinishFlag { get; set; } = false;
+
+    public string Name { get; } 
     // Start is called before the first frame update
 
     public Character(string name)
     {
-        this.name = name;
+        this.Name = name;
         coordinate = 0;
         dice = new Dice();
     }
@@ -29,4 +31,5 @@ public class Character
     {
         return;
     }
+    
 }
