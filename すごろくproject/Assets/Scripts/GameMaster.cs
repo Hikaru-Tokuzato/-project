@@ -14,7 +14,11 @@ public class GameMaster : MonoBehaviour
     void StartGame(){
         //ステージ選択
         _stage = new Stage();
-        _stage.MakeStage();
+        
+        // grids の情報を取得
+        // GameObject.FindWithTags
+        var grids = new Grid[] { new Grid(), new Grid(),};
+        _stage.MakeStage(grids);
         
         //人数聞く
         var playerNum = 1; 

@@ -6,35 +6,45 @@ public class Stage : MonoBehaviour
 {
     Grid[] grids;
     List<Character> Characters;
-    int turn;
-    int order;
-    // Start is called before the first frame update
-    void Start()
+    int activePlayer;
+    List<int> order;
+    
+    public void MakePlayer(int playerNum)
     {
-
-    }
-
-    public void MakePlayer(int playerNum){
-        this.Characters.Add(new Character("Taro"));
-    }
-
-    public void MakeStage()
-    {
-        
+        for (int i = 1; i <= playerNum; i++)
+        {
+            this.Characters.Add(new Character("Player" + i));
+        }
     }
 
     public void MakeOrder()
     {
-        
-    }
+        for (int i = 1; i <= Characters.Count; i++)
+        {
+            order.Add(i);
+        }
 
+        activePlayer = order[0];
+    }
+    
+    public void MakeStage(Grid[] grids)
+    {
+        this.grids = grids;
+    }
+    
     public void ForceAction(int actionNumber)
     {
-        
+        if (actionNumber == 1) //ダイスを振る
+        {
+            var value = Characters[actionNumber].RollDice();
+            Characters[actionNumber].Move(value);
+            var action = grids[Characters[actionNumber].coordinate].GetAction();
+            Characters[actionNumber].CharacterAction(action);
+        }
     }
 
     public bool IfFinishGame()
     {
-        return true
+        return true;
     }
 }

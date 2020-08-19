@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    int coordinate;
+    public int coordinate;
     string name;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,17 @@ public class Character : MonoBehaviour
         this.name = name;
     }
 
-    void Move(int amount){
+    public void Move(int amount){
         coordinate += amount;
+    }
+
+    public int RollDice()
+    {
+        return 1;
+    }
+
+    public void CharacterAction(int action)
+    {
+        
     }
 }
