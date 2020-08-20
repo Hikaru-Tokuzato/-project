@@ -44,8 +44,6 @@ namespace Scripts
                     //行動の提示
                     var actionNumber = 1;
                     var value = _stage.ForceAction(actionNumber, i);
-                    Vector3 tmp = grid[value-1].transform.position;
-                    koma.transform.position = tmp;
                 }
 
                 _stage.turn = _stage.turn + 1;

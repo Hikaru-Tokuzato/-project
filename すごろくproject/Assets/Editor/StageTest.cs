@@ -42,8 +42,9 @@ namespace Tests
             UnityAssert.Assert.AreEqual(4, stage.Characters[0].coordinate);
             
             value = stage.ForceAction(1, 0);
-            UnityAssert.Assert.AreEqual(0,value);
+            UnityAssert.Assert.AreEqual(-1,value);
             UnityAssert.Assert.AreEqual(4, stage.Characters[0].coordinate);
+            UnityAssert.Assert.IsTrue(stage.IfFinishGame());
         }
     }
     

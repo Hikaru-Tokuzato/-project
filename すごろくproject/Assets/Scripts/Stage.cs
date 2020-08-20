@@ -40,10 +40,10 @@ namespace Scripts
             if (actionNumber == 1) //ダイスを振る
             {
                 value = Characters[order[index]].RollDice();
-                if (Characters[order[index]].coordinate + value + 1 > grids.Count)
+                if (Characters[order[index]].coordinate + value >= grids.Count - 1)
                 {
                     Characters[order[index]].FinishFlag = true;
-                    value = Characters[order[index]].coordinate + 1 - grids.Count;
+                    value = grids.Count - Characters[order[index]].coordinate -1;
                 }
                 Characters[order[index]].Move(value);
                 var action = grids[Characters[order[index]].coordinate].GetAction();
