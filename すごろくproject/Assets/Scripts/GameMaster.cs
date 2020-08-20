@@ -20,13 +20,12 @@ namespace Scripts
             _stage = new Stage();
 
             // grids の情報を取得
-            // GameObject.FindWithTags
-            var grids = new List<Grid>();
+            var grids = new List<IGrid>();
             var grid = GameObject.FindGameObjectsWithTag("grid");
             var koma = GameObject.Find("Player");
             foreach(GameObject i in grid)
             {
-                grids.Add(i.GetComponent<Grid>());
+                grids.Add(i.GetComponent<IGrid>());
             }
             _stage.MakeStage(grids);
 

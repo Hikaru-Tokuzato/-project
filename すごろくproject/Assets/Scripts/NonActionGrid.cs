@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Scripts
 {
-    public class Grid :MonoBehaviour
+    public class NonActionGrid : MonoBehaviour, IGrid
     {
         public int GetAction()
         {

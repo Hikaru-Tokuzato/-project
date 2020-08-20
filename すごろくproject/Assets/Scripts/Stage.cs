@@ -5,7 +5,7 @@ namespace Scripts
 {
     public class Stage
     {
-        public List<Grid> grids = new List<Grid>();
+        public List<IGrid> grids = new List<IGrid>();
         public List<Character> Characters = new List<Character>();
         public List<int> order = new List<int>();
         public int turn { get; set; } = 0;
@@ -27,7 +27,7 @@ namespace Scripts
             }
         }
     
-        public void MakeStage(List<Grid> grids)
+        public void MakeStage(List<IGrid> grids)
         {
             this.grids = grids;
         }

@@ -20,7 +20,7 @@ namespace Tests
 
             stage.Characters = characters;
             
-            List<Grid> grids = new List<Grid>(){ new Grid(), new Grid(), new Grid(), new Grid(), new Grid()};
+            List<IGrid> grids = new List<IGrid>(){ new NonActionGrid(), new NonActionGrid(), new NonActionGrid(), new NonActionGrid(), new NonActionGrid()};
             
             stage.MakeStage(grids);
             stage.MakeOrder();
