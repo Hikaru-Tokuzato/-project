@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character
 {
     public int coordinate;
-    public Dice dice;
+    public IDice dice;
     public bool FinishFlag { get; set; } = false;
 
     public string Name { get; } 
@@ -16,6 +16,13 @@ public class Character
         this.Name = name;
         coordinate = 1;
         dice = new Dice();
+    }
+
+    public Character(string name, IDice dice)
+    {
+        this.Name = name;
+        coordinate = 1;
+        this.dice = dice;
     }
 
     public void Move(int amount){
@@ -33,3 +40,4 @@ public class Character
     }
     
 }
+

@@ -1,7 +1,12 @@
 ﻿using Random = System.Random;
 using UnityEngine;
 
-public class Dice
+public interface IDice
+{
+    int Roll();
+}
+
+public class Dice : IDice
 {
     private const int MAXVALUE = 6;
     private const int MINVALUE = 1;
