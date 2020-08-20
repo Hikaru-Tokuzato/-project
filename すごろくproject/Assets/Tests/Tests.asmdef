@@ -1,7 +1,8 @@
 {
     "name": "Tests",
     "references": [
-        "UnityEngine.TestRunner"
+        "UnityEngine.TestRunner",
+        "Scripts"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

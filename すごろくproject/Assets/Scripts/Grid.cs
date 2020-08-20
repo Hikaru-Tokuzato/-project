@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Grid :MonoBehaviour
+namespace Scripts
 {
-    public int GetAction()
+    public class Grid :MonoBehaviour
     {
-        return 1;
+        public int GetAction()
+        {
+            return 1;
+        }
     }
 }

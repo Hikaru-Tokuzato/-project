@@ -1,43 +1,42 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Character
+﻿namespace Scripts
 {
-    public int coordinate;
-    public IDice dice;
-    public bool FinishFlag { get; set; } = false;
-
-    public string Name { get; } 
-    // Start is called before the first frame update
-
-    public Character(string name)
+    public class Character
     {
-        this.Name = name;
-        coordinate = 1;
-        dice = new Dice();
-    }
+        public int coordinate;
+        public IDice dice;
+        public bool FinishFlag { get; set; } = false;
 
-    public Character(string name, IDice dice)
-    {
-        this.Name = name;
-        coordinate = 1;
-        this.dice = dice;
-    }
+        public string Name { get; } 
+        // Start is called before the first frame update
 
-    public void Move(int amount){
-        coordinate += amount;
-    }
+        public Character(string name)
+        {
+            this.Name = name;
+            coordinate = 0;
+            dice = new Dice();
+        }
 
-    public int RollDice()
-    {
-        return dice.Roll();
-    }
+        public Character(string name, IDice dice)
+        {
+            this.Name = name;
+            coordinate = 0;
+            this.dice = dice;
+        }
 
-    public void CharacterAction(int action)
-    {
-        return;
-    }
+        public void Move(int amount){
+            coordinate += amount;
+        }
+
+        public int RollDice()
+        {
+            return dice.Roll();
+        }
+
+        public void CharacterAction(int action)
+        {
+            return;
+        }
     
+    }
 }
 

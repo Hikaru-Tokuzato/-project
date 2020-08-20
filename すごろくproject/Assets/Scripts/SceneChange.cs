@@ -1,22 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;//シーン切り替えに使用するライブラリ
+﻿using UnityEngine;
+using UnityEngine.SceneManagement; //シーン切り替えに使用するライブラリ
 
-public class SceneChange : MonoBehaviour
+namespace Scripts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SceneChange : MonoBehaviour
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Space))
+        // Start is called before the first frame update
+        void Start()
         {
-            SceneManager.LoadScene("SelectScene", LoadSceneMode.Single);
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                SceneManager.LoadScene("SelectScene", LoadSceneMode.Single);
+            }
         }
     }
 }
