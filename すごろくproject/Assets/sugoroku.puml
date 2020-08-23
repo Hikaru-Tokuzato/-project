@@ -31,12 +31,13 @@ loop ゲーム終了まで
         Dice -> Character : ダイスの値の返却
         Character -> Stage : ダイスの値の返却
         Stage -> GameMaster : ダイスの値の返却
+        GameMaster -> Player : viewDice
         Stage -> Character : キャラクターの移動 Move()
         Stage -> GameMaster : キャラクター移動情報
+        GameMaster -> Player : viewMoveCharacter
         Stage -> Grid : アクションの要求  GridAction()
         Grid -> Stage : アクションの返却  GetAction()
         Stage -> GameMaster : アクション情報
-        Stage -> Gamemaster : アクションの内容
         Stage -> Character : アクションの命令CharacterAction()
         Character -> Character : アクションの実行 Action()
     end
