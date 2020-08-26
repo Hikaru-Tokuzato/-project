@@ -2,10 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.TestTools;
-using Scripts;
 using UnityEditor.VersionControl;
 using UnityAssert = UnityEngine.Assertions;
-
+using Scripts;
 namespace Tests
 {
     public class StageTest

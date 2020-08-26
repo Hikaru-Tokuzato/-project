@@ -48,7 +48,7 @@ namespace Scripts
                     var value = _stage.ForceAction(actionNumber, i);
                 }
 
-                _stage.turn = _stage.turn + 1;
+                //_stage.turn = _stage.turn + 1;
             }
         }
     }

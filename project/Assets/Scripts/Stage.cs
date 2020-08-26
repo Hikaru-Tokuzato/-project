@@ -76,7 +76,6 @@ namespace Scripts
         public void NextTurn()
         {
             _turn++;
-            turnSubject.
         }
     }
 }
